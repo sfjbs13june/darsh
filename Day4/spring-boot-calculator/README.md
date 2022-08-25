@@ -8,7 +8,7 @@ Create Project
 $mvn archetype:generate -DgroupId=com.darsh.app -DartifactId=spring-boot-calculator -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
 ```
 ## Import project
-Import the project on either eclipse or inellij as a maven import project
+Import the project on either Eclipse or IntelliJ as a maven import project
 
 ## Building
 
@@ -35,7 +35,7 @@ $ mvn install dockerfile:build
 The application can be start is either locally using maven or start in docker container.
 
 ### Running the application in local environment
-Using eclipse:It can be run as java application or run configuration to provide the program arguments.
+Using eclipse: It can be run as java application or run configuration to provide the program arguments.
 You can run using maven command as:
 
 ```bash
