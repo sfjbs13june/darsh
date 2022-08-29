@@ -19,9 +19,9 @@ mvn spring-boot:run
 # Authorization
 
 This application has 4 users:
-darsh       -   ADMIN
-user123     -   USER
-admin123    -   ADMIN
+darsh       -   ADMIN, 
+user123     -   USER, 
+admin123    -   ADMIN, 
 test123     -   USER
 
 # Testing Application
