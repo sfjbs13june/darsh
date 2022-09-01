@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -53,5 +54,40 @@ class PatientControllerTest {
         responseEntity.andExpect(status().isOk());
         String result=responseEntity.andReturn().getResponse().getContentAsString();
         assertEquals("Deleted", result);
+    }
+
+    @Test
+    void savePatient() throws Exception{
+        Patient patient = new Patient("Darsh","p1","Asthma","WH");
+
+        ResultActions responseEntity = mockMvc.perform(post(patientPostUrl).contentType(MediaType.APPLICATION_JSON).content(asJsonString(patient)).accept(MediaType.APPLICATION_JSON));
+        responseEntity.andExpect(status().isOk());
+        ObjectMapper objectMapper = new ObjectMapper();
+        Patient result = objectMapper.readValue(responseEntity.andReturn().getResponse().getContentAsString(),new TypeReference<Patient>(){});
+        assertEquals("p1",result.getPatient_id());
+        assertEquals("Darsh",result.getPatient_name());
+        assertEquals("Asthma",result.getDisease());
+        assertEquals("WH",result.getHospital_name());
+    }
+    private String asJsonString(final Object obj) {
+        try {
+            final ObjectMapper objectMapper = new ObjectMapper();
+            final String jsonContent = objectMapper.writeValueAsString(obj);
+            return jsonContent;
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Test
+    void updatePatient() throws Exception{
+        ResultActions responseEntity = mockMvc.perform(put(patientPutUrl).param("patient_id","p4").param("disease","Cancer"));
+        responseEntity.andExpect(status().isOk());
+        ObjectMapper objectMapper = new ObjectMapper();
+        Patient result = objectMapper.readValue(responseEntity.andReturn().getResponse().getContentAsString(), new TypeReference<Patient>() {});
+        assertEquals("p1",result.getPatient_id());
+        assertEquals("Darsh",result.getPatient_name());
+        assertEquals("Asthma",result.getDisease());
+        assertEquals("WH",result.getHospital_name());
     }
 }
