@@ -15,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import java.util.*;
+import java.util.stream.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -52,6 +53,15 @@ class HospitalControllerTest {
         assertEquals("h1",result.getHospital_id());
         assertEquals("WH",result.getHospital_name());
         assertEquals("RingRoad",result.getAddress());
+        assertEquals("p1",result.getPatients().get(0).getPatient_id());
+        List<Patient> check = result.getPatients().stream().collect(Collectors.toList());
+        System.out.println(result.getPatients().stream().map(y -> y.toString()).collect(Collectors.toList()));
+        System.out.println(check.getClass());
+        System.out.println("patient "+patientList.getClass());
+        //assertEquals(patientList,check);
+        System.out.println(check);
+        System.out.println(patientList);
+        assertEquals(patientList,check);
         //assertEquals(patientList,result.getPatients().get(0));
     }
 

@@ -1,4 +1,4 @@
-package com.darsh.rest.hospitalapplication.model;
+package com.darsh.rest.patientapplication.model;
 
 import org.springframework.stereotype.Component;
 
@@ -9,7 +9,7 @@ public class Patient {
     private String disease;
     private String hospital_name;
 
-    public Patient(String patient_name, String patient_id, String disease, String hospital_name) {
+    public Patient(String patient_name,String patient_id, String disease, String hospital_name) {
         this.patient_name = patient_name;
         this.patient_id = patient_id;
         this.disease = disease;
@@ -49,15 +49,5 @@ public class Patient {
 
     public void setHospital_name(String hospital_name) {
         this.hospital_name = hospital_name;
-    }
-
-    @java.lang.Override
-    public java.lang.String toString() {
-        return "Patient{" +
-                "patient_name=" + patient_name +
-                ", patient_id=" + patient_id +
-                ", disease=" + disease +
-                ", hospital_name=" + hospital_name +
-                '}';
     }
 }
