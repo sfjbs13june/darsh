@@ -42,7 +42,7 @@ public class Hospital {
         return address;
     }
 
-    public void setAddress(String disease) {
+    public void setAddress(String address) {
         this.address = address;
     }
 

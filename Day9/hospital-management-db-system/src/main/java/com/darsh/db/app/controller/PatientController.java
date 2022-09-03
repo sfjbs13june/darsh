@@ -1,38 +1,38 @@
 package com.darsh.db.app.controller;
 
 import com.darsh.db.app.model.Patient;
-import com.darsh.db.app.repository.PatientRepositroy;
+import com.darsh.db.app.repository.PatientRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/patient")
 public class PatientController {
-    private PatientRepositroy patientRepositroy;
+    private PatientRepository patientRepository;
 
-    public PatientController(PatientRepositroy patientRepositroy){
-        this.patientRepositroy = patientRepositroy;
+    public PatientController(PatientRepository patientRepository){
+        this.patientRepository = patientRepository;
     }
 
     @PostMapping("/save")
-    public String savePatient(@RequestBody Patient patient){
-        patientRepositroy.save(patient);
+    @ResponseBody public String savePatient(@RequestBody Patient patient){
+        patientRepository.save(patient);
         return "saved";
     }
     @GetMapping("/get")
-    public Iterable<Patient> getPatients(){
-        return patientRepositroy.findAll();
+    @ResponseBody public Iterable<Patient> getPatients(){
+        return patientRepository.findAll();
     }
     @DeleteMapping("/delete")
-    public String deletePatientById(@RequestParam Integer id){
-        patientRepositroy.deleteById(id);
+    @ResponseBody public String deletePatientById(@RequestParam Integer id){
+        patientRepository.deleteById(id);
         return "Deleted";
     }
     @PutMapping("/update")
-    public Patient updatePatient(@RequestParam Integer id,@RequestParam String disease){
-        Patient patient = patientRepositroy.findById(id).get();
+    @ResponseBody public Patient updatePatient(@RequestParam Integer id,@RequestParam String disease){
+        Patient patient = patientRepository.findById(id).get();
         patient.setDisease(disease);
-        patientRepositroy.save(patient);
+        patientRepository.save(patient);
         return patient;
     }
 }
