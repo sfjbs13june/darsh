@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="df9f496d-a85b-4f59-9062-f84e7b79ee8d" name="Changes" comment="Day 9 Project : (Incomplete) Created a microservice to use MySQL database and Mockito Testing">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hospital-management-db-system/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/hospital-management-db-system/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hospital-management-db-system/src/main/java/com/darsh/db/app/controller/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/hospital-management-db-system/src/main/java/com/darsh/db/app/controller/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hospital-management-db-system/src/main/java/com/darsh/db/app/model/Hospital.java" beforeDir="false" afterPath="$PROJECT_DIR$/hospital-management-db-system/src/main/java/com/darsh/db/app/model/Hospital.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hospital-management-db-system/src/main/java/com/darsh/db/app/repository/PatientRepositroy.java" beforeDir="false" afterPath="$PROJECT_DIR$/hospital-management-db-system/src/main/java/com/darsh/db/app/repository/PatientRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +26,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "last_opened_file_path": "C:/Users/sfjbs/IdeaProjects/darsh/Day9/third-mysql-app"
+    "last_opened_file_path": "C:/Users/sfjbs/IdeaProjects/rama/Day9"
   }
 }]]></component>
   <component name="RecentsManager">
