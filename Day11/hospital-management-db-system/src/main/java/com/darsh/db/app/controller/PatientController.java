@@ -1,0 +1,37 @@
+package com.darsh.db.app.controller;
+
+import com.darsh.db.app.model.Patient;
+import com.darsh.db.app.repository.PatientRepository;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+@Controller
+@RequestMapping("/patient")
+public class PatientController {
+    private PatientRepository patientRepository;
+
+    public PatientController(PatientRepository patientRepository){
+        this.patientRepository = patientRepository;
+    }
+
+    @PostMapping("/save")
+    @ResponseBody public Patient savePatient(@RequestBody Patient patient){
+        return patientRepository.save(patient);
+    }
+    @GetMapping("/get")
+    @ResponseBody public Iterable<Patient> getPatients(){
+        return patientRepository.findAll();
+    }
+    @DeleteMapping("/delete")
+    @ResponseBody public String deletePatientById(@RequestParam Integer id){
+        patientRepository.deleteById(id);
+        return "Deleted";
+    }
+    @PutMapping("/update")
+    @ResponseBody public Patient updatePatient(@RequestParam Integer id,@RequestParam String disease){
+        Patient patient = patientRepository.findById(id).get();
+        patient.setDisease(disease);
+        patientRepository.save(patient);
+        return patient;
+    }
+}
