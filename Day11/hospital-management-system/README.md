@@ -48,7 +48,7 @@ http://localhost:8081/swagger-ui/index.html
 # Testing Application in IntelliJ
 Test Cases were made for each mapping and with code coverage
 ```
-for com.test.java.com.darsh.db.app.controller
+
 Class 100 %
 Method 93 %
 Line 88 %

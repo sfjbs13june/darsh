@@ -11,8 +11,8 @@ mvn clean install
 ```
 # Testing Application in IntelliJ
 Test Cases were made for each mapping and with code coverage
-```
-
+``` 
+Without HospitalManagementDbSystemApplication
 Class 80 %
 Method 96 %
 Line 97 %

@@ -9,7 +9,6 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Optional;
 
 import static org.junit.Assert.*;

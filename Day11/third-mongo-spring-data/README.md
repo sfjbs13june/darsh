@@ -6,6 +6,13 @@ mvn clean install
 docker-compose -f docker-compose-mongo.yml up -d
 mvn spring-boot:run
 docker-compose -f docker-compose-mongo.yml down
+
+# Coverage
+```
+Class   100%
+Method  83%
+Line    90%
+```
 # training
 ## Post
 

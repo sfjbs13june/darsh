@@ -64,4 +64,11 @@ public class CreateControllerTest {
         Assert.assertEquals(res.getAddress(),expectedCustomer.getAddress());
     }
 
+    @Test
+    public void deleteByName(){
+        String res = createController.deleteByName(anyString());
+        verify(customerRepository,times(1)).deleteByName(anyString());
+        Assert.assertEquals(res,"Deleted");
+    }
+
 }
