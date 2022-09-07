@@ -13,11 +13,11 @@ artemis-demo-producer> mvn spring-boot:run
 ```
 curl -X GET 'http://localhost:1230/send?msg=darsh'
 ```
-## Stop Container
+# Stop Container
 ```
 docker-compose -f docker-compose-artemis.yml down
 ```
-#Show data::
+# Show data:
 ```
 http://localhost:8161/
 ```
