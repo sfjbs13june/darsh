@@ -4,6 +4,8 @@ import com.darsh.rabbitmq.model.Employee;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -17,6 +19,10 @@ public class RabbitMQSender {
   @Value("${rabbitmq.routingkey.name}")
   private String routingkey;
 
+
+  @Retryable(value = { UncategorizedJmsException.class }, maxAttemptsExpression = "${retry.maxattempt}",
+          backoff = @Backoff(random = true, delayExpression = "${retry.delay}",
+                  maxDelayExpression = "${retry.maxdelay}", multiplierExpression = "${retry.multiplier}"))
   public void send(Employee company) {
     rabbitTemplate.convertAndSend(exchange, routingkey, company);
     System.out.println("Send msg = " + company);
