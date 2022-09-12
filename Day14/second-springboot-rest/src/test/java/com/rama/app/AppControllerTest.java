@@ -17,6 +17,8 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.util.Base64Utils;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -122,8 +124,13 @@ public class AppControllerTest {
   }
   @Test
   public void testEmployeeRequestParam() throws Exception{
-    ResultActions responseEntity = mockMvc.perform(get(requestpurl).header(HttpHeaders.AUTHORIZATION,"Basic " + Base64Utils.encodeToString((admin_name1+":"+admin_password1).getBytes())));
+    List<String> idList=new ArrayList<>();
+    idList.add("DBJ");
+    idList.add("TCS");
+    ResultActions responseEntity=mockMvc.perform(get(requestpurl).param("id", String.valueOf(idList)).header(HttpHeaders.AUTHORIZATION,"Basic " + Base64Utils.encodeToString((admin_name1+":"+admin_password1).getBytes())));
     responseEntity.andExpect(status().isOk());
+    String result=responseEntity.andReturn().getResponse().getContentAsString();
+    assertEquals("Request Param:[[DBJ, TCS]]", result);
   }
   /*@Test
   public void testEmployeeHeaders() throws Exception{
