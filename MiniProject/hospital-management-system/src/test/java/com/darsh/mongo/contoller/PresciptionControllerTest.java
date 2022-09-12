@@ -18,10 +18,10 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PresciptionControllerTest {
+public class PrescriptionControllerTest {
 
     @InjectMocks
-    private PresciptionController presciptionController;
+    private PrescriptionController presciptionController;
 
     @Mock
     private PrescriptionRepository prescriptionRepository;
