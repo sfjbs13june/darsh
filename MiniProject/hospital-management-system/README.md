@@ -21,6 +21,12 @@ spring.data.mongodb.port=27017
 spring.data.mongodb.database=test_db
 ```
 
+Build docker image
+
+```
+mvn install dockerfile:build
+```
+
 ```
 docker-compose -f docker-compose.yml up -d
 
@@ -48,7 +54,6 @@ http://localhost:8081/swagger-ui/index.html
 # Testing Application in IntelliJ
 Test Cases were made for each mapping and with code coverage
 ```
-
 Class 100 %
 Method 93 %
 Line 88 %
@@ -132,4 +137,15 @@ curl --location --request GET 'localhost:8081/patient/myappointment?patientName=
 --header 'Authorization: Basic cGF0aWVudDE6cGFzc3dvcmQ=' \
 --header 'Cookie: JSESSIONID=724F92BE6E7D9B6C4624E58CAAC2DCFD' \
 --data-raw ''
+```
+
+# Show data:
+```
+docker exec -it hospotal-management-system_mongo_1 bash
+mongo
+show dbs
+use databse
+show tables
+db.appointment.find()
+db.prescription.find()
 ```
