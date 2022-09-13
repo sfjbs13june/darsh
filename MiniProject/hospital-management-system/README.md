@@ -27,12 +27,20 @@ Build docker image
 mvn install dockerfile:build
 ```
 
+For Files with name other than docker-compose.yml
+
 ```
 docker-compose -f docker-compose.yml up -d
+```
 
+Or for docker-compose.yml
+
+```
+docker-compose up
+```
+To run the application( but here it won't be required as application will start as docker container )
+```
 mvn spring-boot:run
-
-docker-compose -f docker-compose.yml down
 ```
 
 # Users
@@ -62,6 +70,7 @@ Line 88 %
 # Testing Application by Postman
 
 Save Prescription
+
 ```
 curl --location --request POST 'localhost:8081/saveprescription' \
 --header 'Authorization: Basic dXNlcjE6cGFzc3dvcmQ=' \
@@ -76,6 +85,7 @@ curl --location --request POST 'localhost:8081/saveprescription' \
 ```
 
 Get Prescription
+
 ```
 curl --location --request GET 'localhost:8081/viewprescription?patientName=patient2' \
 --header 'Authorization: Basic dXNlcjE6cGFzc3dvcmQ=' \
@@ -83,6 +93,7 @@ curl --location --request GET 'localhost:8081/viewprescription?patientName=patie
 ```
 
 Save Appointment From Doctor Controller
+
 ```
 curl --location --request POST 'localhost:8081/doctor/save' \
 --header 'Authorization: Basic ZG9jdG9yMTpwYXNzd29yZA==' \
@@ -103,6 +114,7 @@ curl --location --request POST 'localhost:8081/doctor/save' \
 }'
 ```
 Get Appointment from Doctor Controller
+
 ```
 curl --location --request GET 'localhost:8081/doctor/doctorappointment?doctorName=doctor1' \
 --header 'Authorization: Basic ZG9jdG9yMTpwYXNzd29yZA==' \
@@ -111,6 +123,7 @@ curl --location --request GET 'localhost:8081/doctor/doctorappointment?doctorNam
 ```
 
 Save Appointment From Patient Controller
+
 ```
 curl --location --request POST 'localhost:8081/patient/save' \
 --header 'Authorization: Basic cGF0aWVudDE6cGFzc3dvcmQ=' \
@@ -132,6 +145,7 @@ curl --location --request POST 'localhost:8081/patient/save' \
 ```
 
 Get Appointment from Patient Controller
+
 ```
 curl --location --request GET 'localhost:8081/patient/myappointment?patientName=patient3' \
 --header 'Authorization: Basic cGF0aWVudDE6cGFzc3dvcmQ=' \
@@ -140,6 +154,7 @@ curl --location --request GET 'localhost:8081/patient/myappointment?patientName=
 ```
 
 # Show data:
+
 ```
 docker exec -it hospotal-management-system_mongo_1 bash
 mongo
@@ -148,4 +163,17 @@ use database
 show tables
 db.appointment.find()
 db.prescription.find()
+```
+# Stop the containers
+
+For Files with name other than docker-compose.yml
+
+```
+docker-compose -f docker-compose.yml down
+```
+
+Or for docker-compose.yml
+
+```
+docker-compose down
 ```
