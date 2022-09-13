@@ -1,4 +1,4 @@
-package com.darsh.mongo.contoller;
+package com.darsh.mongo.controller;
 
 import com.darsh.mongo.model.Appointment;
 import com.darsh.mongo.repository.AppointmentRepository;
@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/doctor")
-public class DoctorController {
+@RequestMapping("/patient")
+public class PatientController {
 
     @Autowired
     private AppointmentRepository appointmentRepository;
 
-    @GetMapping("/doctorappointment")
-    public List<Appointment> getAppointments(@RequestParam String doctorName){
-        return appointmentRepository.findByDoctorName(doctorName);
+    @GetMapping("/myappointment")
+    public List<Appointment> getMyAppointments(@RequestParam String patientName){
+        return appointmentRepository.findByPatientName(patientName);
     }
 
     @PostMapping("/save")

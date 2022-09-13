@@ -1,4 +1,4 @@
-package com.darsh.mongo.contoller;
+package com.darsh.mongo.controller;
 
 import com.darsh.mongo.model.Prescription;
 import com.darsh.mongo.repository.PrescriptionRepository;

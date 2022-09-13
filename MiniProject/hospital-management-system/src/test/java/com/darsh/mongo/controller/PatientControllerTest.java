@@ -1,4 +1,4 @@
-package com.darsh.mongo.contoller;
+package com.darsh.mongo.controller;
 
 import com.darsh.mongo.model.Appointment;
 import com.darsh.mongo.model.Prescription;
@@ -19,11 +19,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DoctorControllerTest {
-
+public class PatientControllerTest {
     @InjectMocks
-    private DoctorController doctorController;
-
+    private PatientController patientController;
     @Mock
     private AppointmentRepository appointmentRepository;
 
@@ -37,8 +35,8 @@ public class DoctorControllerTest {
         appointment.setDoctorName("doctor1");
         List<Appointment> appointmentList = new ArrayList<>();
         appointmentList.add(appointment);
-        when(appointmentRepository.findByDoctorName(anyString())).thenReturn(appointmentList);
-        List<Appointment> res = doctorController.getAppointments("doctor1");
+        when(appointmentRepository.findByPatientName(anyString())).thenReturn(appointmentList);
+        List<Appointment> res = patientController.getMyAppointments("patient1");
         assertEquals(res.get(0).getAppointmentId(),appointmentList.get(0).getAppointmentId());
         assertEquals(res.get(0).getPrescription(),appointmentList.get(0).getPrescription());
         assertEquals(res.get(0).getDate(),appointmentList.get(0).getDate());
@@ -57,7 +55,7 @@ public class DoctorControllerTest {
         appointment.setPrescription(new Prescription("presc1","appoint1","desc","patient1","doctor1"));
         appointment.setDoctorName("doctor1");
         when(appointmentRepository.save(any(Appointment.class))).thenReturn(appointment);
-        Appointment res = doctorController.saveAppointment(mockAppointment);
+        Appointment res = patientController.saveAppointment(mockAppointment);
         assertEquals(res.getPrescription(),appointment.getPrescription());
         assertEquals(res.getDate(),appointment.getDate());
         assertEquals(res.getPatientName(),appointment.getPatientName());

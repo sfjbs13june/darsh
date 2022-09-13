@@ -144,7 +144,7 @@ curl --location --request GET 'localhost:8081/patient/myappointment?patientName=
 docker exec -it hospotal-management-system_mongo_1 bash
 mongo
 show dbs
-use databse
+use database
 show tables
 db.appointment.find()
 db.prescription.find()
